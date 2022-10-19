@@ -2,14 +2,12 @@ const usuarios = require('../model/usuarios');
 
 module.exports = {
     async insereUsuarios(req, res) {
-        const { id_usuarios,
-                nome_usuario,
+        const { nome_usuario,
                 moedas,
                 valor,
                 vidas} = req.body;
 
-        const aux = await usuarios.create({ id_usuarios,
-                                            nome_usuario,
+        const aux = await usuarios.create({ nome_usuario,
                                             moedas,
                                             valor,
                                             vidas});
