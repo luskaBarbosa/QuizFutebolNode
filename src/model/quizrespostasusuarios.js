@@ -7,7 +7,7 @@ class quizrespostasusuarios extends Model {
             idquizperguntas: DataTypes.INTEGER,
             resposta: DataTypes.STRING,
             nivel: DataTypes.INTEGER,
-            usuario: DataTypes.INTEGER
+            usuario: DataTypes.STRING
         }, 
         {
             sequelize
