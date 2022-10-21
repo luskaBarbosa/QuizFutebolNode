@@ -32,5 +32,16 @@ module.exports = {
             }
         });
         return res.json(aux);
+    },
+    async somaQuizPerguntas(req, res) {
+
+        const { idquizes } = req.params;
+
+        const aux = await quizperguntas.count({
+            where:{
+                status: idquizes
+            }
+        });
+        return res.json(aux);
     }
 }
