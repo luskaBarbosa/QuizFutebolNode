@@ -22,7 +22,7 @@ module.exports = {
 
         return res.json(aux);
     },
-    async buscaQuizPeruntas(req, res) {
+    async buscaQuizPerguntas(req, res) {
 
         const { idquizes } = req.params;
 

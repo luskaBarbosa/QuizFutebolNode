@@ -15,7 +15,7 @@ routes.post('/insereQuizPeruntas', quizperguntasController.insereQuizPeruntas);
 
 routes.get('/buscaUsuarios/:nome_usuario', usuariosController.buscaUsuarios);
 routes.get('/buscaQuizes', quizesController.buscaQuizes);
-routes.get('/buscaQuizPeruntas', quizperguntasController.buscaQuizPeruntas);
+routes.get('/buscaQuizPerguntas', quizperguntasController.buscaQuizPerguntas);
 
 
 module.exports = routes;
