@@ -19,7 +19,7 @@ routes.get('/buscaUsuarios/:nome_usuario', usuariosController.buscaUsuarios);
 routes.get('/buscaQuizes', quizesController.buscaQuizes);
 routes.get('/buscaQuizPerguntas/:idquizes', quizperguntasController.buscaQuizPerguntas);
 routes.get('/somaQuizPerguntas/:idquizes/:nivel/:nome', quizperguntasController.somaQuizPerguntas);
-routes.get('/buscaQuizPerguntasPorId/:idquizes/:nivel/:nome', quizperguntasController.buscaQuizPerguntasPorId);
+routes.get('/buscaQuizPerguntasAgrupado', quizperguntasController.buscaQuizPerguntasAgrupado);
 routes.get('/buscaQuizRespostasUsuarios/:idquizes/:idquizperguntas/:nivel/:usuario', quizrespostasusuarios.buscaQuizRespostasUsuarios);
 
 
