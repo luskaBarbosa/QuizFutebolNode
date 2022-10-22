@@ -1,4 +1,5 @@
 const quizperguntas = require('../model/quizperguntas');
+const Sequelize = require('sequelize');
 
 module.exports = {
     async insereQuizPeruntas(req, res) {
@@ -52,13 +53,21 @@ module.exports = {
     },
     async buscaQuizPerguntasAgrupado(req, res) {
 
+        const { idquizes, nivel, nome } = req.params;
+
         const aux = await quizperguntas.findAll({
             attributes: [
-                'idquizes',
-                [sequelize.fn('COUNT'), 'count'],
+                'idquizes', 
+                'nivel', 
                 'nome',
-                'nivel'
-              ]
+                [Sequelize.fn('COUNT'), 'count'] 
+            ],
+            where: {
+                idquizes: idquizes,
+                nivel: nivel,
+                nome: nome
+            },
+            group:['idquizes','nome','nivel']
         });
         return res.json(aux);
     }
