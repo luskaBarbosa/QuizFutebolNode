@@ -60,7 +60,7 @@ module.exports = {
                 'idquizes', 
                 'nivel', 
                 'nome',
-                [Sequelize.fn('COUNT'), 'count'] 
+                [Sequelize.fn('COUNT', Sequelize.col('pergunta')), 'count'] 
             ],
             where: {
                 idquizes: idquizes,
