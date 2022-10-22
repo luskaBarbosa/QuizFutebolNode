@@ -3,6 +3,8 @@ const quizperguntas = require('../model/quizperguntas');
 module.exports = {
     async insereQuizPeruntas(req, res) {
         const { idquizes,
+                nome,
+                nivel,
                 pergunta,
                 resposta_certa,
                 resposta_errada1,
@@ -12,6 +14,8 @@ module.exports = {
                 tipo} = req.body;
 
         const aux = await quizperguntas.create({    idquizes,
+                                                    nome,
+                                                    nivel,
                                                     pergunta,
                                                     resposta_certa,
                                                     resposta_errada1,
@@ -35,11 +39,13 @@ module.exports = {
     },
     async somaQuizPerguntas(req, res) {
 
-        const { idquizes } = req.params;
+        const { idquizes, nivel, nome } = req.params;
 
         const aux = await quizperguntas.count({
             where:{
-                status: idquizes
+                status: idquizes,
+                nivel: nivel,
+                nome: nome
             }
         });
         return res.json(aux);
