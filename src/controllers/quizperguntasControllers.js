@@ -53,7 +53,7 @@ module.exports = {
     },
     async buscaQuizPerguntasAgrupado(req, res) {
 
-        const { nivel, nome } = req.params;
+        const { nome } = req.params;
 
         const aux = await quizperguntas.findAll({
             attributes: [
@@ -62,7 +62,6 @@ module.exports = {
                 [Sequelize.fn('COUNT', Sequelize.col('pergunta')), 'count'] 
             ],
             where: {
-                nivel: nivel,
                 nome: nome
             },
             group:['nome','nivel']
