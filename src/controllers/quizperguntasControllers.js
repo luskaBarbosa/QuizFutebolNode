@@ -43,7 +43,7 @@ module.exports = {
 
         const aux = await quizperguntas.count({
             where:{
-                status: idquizes,
+                idquizes: idquizes,
                 nivel: nivel,
                 nome: nome
             }
