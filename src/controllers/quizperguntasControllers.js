@@ -53,21 +53,19 @@ module.exports = {
     },
     async buscaQuizPerguntasAgrupado(req, res) {
 
-        const { idquizes, nivel, nome } = req.params;
+        const { nivel, nome } = req.params;
 
         const aux = await quizperguntas.findAll({
             attributes: [
-                'idquizes', 
                 'nivel', 
                 'nome',
                 [Sequelize.fn('COUNT', Sequelize.col('pergunta')), 'count'] 
             ],
             where: {
-                idquizes: idquizes,
                 nivel: nivel,
                 nome: nome
             },
-            group:['idquizes','nome','nivel']
+            group:['nome','nivel']
         });
         return res.json(aux);
     }
