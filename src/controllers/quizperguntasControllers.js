@@ -50,16 +50,15 @@ module.exports = {
         });
         return res.json(aux);
     },
-    async buscaQuizPerguntasPorId(req, res) {
-
-        const { idquizes, nivel, nome } = req.params;
+    async buscaQuizPerguntasAgrupado(req, res) {
 
         const aux = await quizperguntas.findAll({
-            where:{
-                idquizes: idquizes,
-                nivel: nivel,
-                nome: nome
-            }
+            attributes: [
+                'idquizes',
+                [sequelize.fn('COUNT'), 'count'],
+                'nome',
+                'nivel'
+              ]
         });
         return res.json(aux);
     }
